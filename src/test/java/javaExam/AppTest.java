@@ -16,4 +16,10 @@ public class AppTest {
 		assertEquals(n, App.generateSVs(n).size());
 	}
 
+	@ParameterizedTest
+	@ValueSource(ints = { 15 })
+	@DisplayName("Should get top 10 studients")
+	public void testGetTop10(int n) {
+		assertEquals(10, App.getTop10Students(App.generateSVs(n)).size());
+	}
 }

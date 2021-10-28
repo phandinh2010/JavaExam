@@ -25,22 +25,12 @@ public class App {
 			System.out.println(sinhVien);
 		}
 
-		// sắp xếp list sv theo thứ tự điểm tăng dần
-		for (int i = 0; i < n; i++) {
-			for (int j = i + 1; j < n; j++) {
-
-				if (listSV.get(j).getTongDiem() > listSV.get(i).getTongDiem()) {
-					SinhVien sv = listSV.get(j);
-					listSV.set(j, listSV.get(i));
-					listSV.set(i, sv);
-				}
-			}
-		}
+		ArrayList<SinhVien> top10 = getTop10Students(listSV);
 
 		// 1. lấy ra 10 người điểm cao nhất
 		System.out.println("Top 10 Sinh Viên điểm cao nhất:");
-		for (int i = 0; i < 10; i++) {
-			System.out.println(listSV.get(i));
+		for (int i = 0; i < top10.size(); i++) {
+			System.out.println(top10.get(i));
 		}
 
 		// 2. lấy ra 10 người điểm thấp nhất
@@ -77,5 +67,28 @@ public class App {
 
 			}
 			return listSV;
+	 }
+	 
+	 public static ArrayList<SinhVien> getTop10Students(ArrayList<SinhVien> listSV) {
+		 int n = listSV.size();
+		// sắp xếp list sv theo thứ tự điểm tăng dần
+			for (int i = 0; i < n; i++) {
+				for (int j = i + 1; j < n; j++) {
+
+					if (listSV.get(j).getTongDiem() > listSV.get(i).getTongDiem()) {
+						SinhVien sv = listSV.get(j);
+						listSV.set(j, listSV.get(i));
+						listSV.set(i, sv);
+					}
+				}
+			}
+
+			// 1. lấy ra 10 người điểm cao nhất
+			ArrayList<SinhVien> result = new ArrayList<SinhVien>();
+			System.out.println("Top 10 Sinh Viên điểm cao nhất:");
+			for (int i = 0; i < 10; i++) {
+				result.add(listSV.get(i));
+			}
+			return result;
 	 }
 }
