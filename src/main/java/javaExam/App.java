@@ -66,7 +66,7 @@ public class App {
 			if( 8 <= listSV.get(i).getTongDiem() ) {
 				sum ++;
 			} else if (listSV.get(i).getTongDiem() >= 6.5) {
-				sum++;
+				sumKha++;
 			} else if (listSV.get(i).getTongDiem() >= 4.5) {
 				sumTrungBinh++;
 			}
@@ -84,7 +84,7 @@ public class App {
 		
 		// Sinh viên trung bình
 		System.out.println("Tổng sinh viên trunng bình: " + sum);
-		double trunhBinh = Math.round((sumKha / (float) n) * 100 * 100.0) / 100.0;
+		double trunhBinh = Math.round((sumTrungBinh / (float) n) * 100 * 100.0) / 100.0;
 		System.out.println("Tỷ lệ sinh viên trung bình: " + trunhBinh + "%" );
 	}
 	
