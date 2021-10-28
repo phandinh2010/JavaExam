@@ -1,17 +1,18 @@
 package javaExam;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class AppTest {
+public class AppTest {
 
-	@Test
 	@ParameterizedTest
 	@ValueSource(ints = { 3, 5 })
 	@DisplayName("Should generate expected studients")
-	void testMain(int n) {
+	public void testGenerate(int n) {
 		assertEquals(n, App.generateSVs(n).size());
 	}
 
