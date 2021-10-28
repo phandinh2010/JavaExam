@@ -45,18 +45,47 @@ public class App {
 		// Đạt
 		int count = 0;
 		for (SinhVien sinhVien : listSV) {
-			if (sinhVien.getTongDiem() >4.5) {
+			if (sinhVien.getTongDiem() > 4.5) {
 				count++;
 			}
 		}
 		
 		System.out.println("Tổng sinh viên đạt: " + count);
 		double dat = Math.round((count / (float) n) * 100 * 100.0) / 100.0;
-		System.out.println("Tỷ lệ sinh viên điểm > 4.5: " + dat + "%" );
+		System.out.println("Tỷ lệ sinh viên đạt: " + dat + "%" );
 		
 		// Không đạt
-		System.out.println("Tổng sinh viên đạt: " + (n - count));
-		System.out.println("Tỷ lệ sinh viên điểm > 4.5: " + (100 - dat) + "%" );
+		System.out.println("Tổng sinh viên không đạt: " + (n - count));
+		System.out.println("Tỷ lệ sinh viên không đạt: " + (100 - dat) + "%" );
+		
+		// Thống kê
+		int sum = 0;
+		int sumKha = 0;
+		int sumTrungBinh = 0;
+		for (int i = 0; i < n; i++) {
+			if( 8 <= listSV.get(i).getTongDiem() ) {
+				sum ++;
+			} else if (listSV.get(i).getTongDiem() >= 6.5) {
+				sum++;
+			} else if (listSV.get(i).getTongDiem() >= 4.5) {
+				sumTrungBinh++;
+			}
+		}
+		
+		// Sinh viên giỏi
+		System.out.println("Tổng sinh viên giỏi: " + sum);
+		double gioi = Math.round((sum / (float) n) * 100 * 100.0) / 100.0;
+		System.out.println("Tỷ lệ sinh viên giỏi: " + gioi + "%" );
+		
+		// Sinh viên khá
+		System.out.println("Tổng sinh viên khá: " + sum);
+		double kha = Math.round((sumKha / (float) n) * 100 * 100.0) / 100.0;
+		System.out.println("Tỷ lệ sinh viên khá: " + kha + "%" );
+		
+		// Sinh viên trung bình
+		System.out.println("Tổng sinh viên trunng bình: " + sum);
+		double trunhBinh = Math.round((sumKha / (float) n) * 100 * 100.0) / 100.0;
+		System.out.println("Tỷ lệ sinh viên trung bình: " + trunhBinh + "%" );
 	}
 	
 	 public static ArrayList<SinhVien> generateSVs(int n) {
